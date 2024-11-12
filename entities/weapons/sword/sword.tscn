@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7oq7pd8dhn67"]
+
+[ext_resource type="Script" path="res://entities/weapons/sword/sword.gd" id="1_gbvdy"]
+[ext_resource type="Texture2D" uid="uid://cjq6j8otxq1lj" path="res://entities/weapons/sword/sword.png" id="1_h5w1x"]
+[ext_resource type="PackedScene" uid="uid://igbb2whpqh66" path="res://entities/attacks/slash/slash.tscn" id="2_t37yx"]
+[ext_resource type="Script" path="res://core/components/icon_component.gd" id="2_w2ami"]
+[ext_resource type="Script" path="res://core/components/weapon_trigger_component.gd" id="3_34ten"]
+[ext_resource type="Script" path="res://core/components/damage_component.gd" id="4_mwtoc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcgqh"]
+
+[node name="Sword" type="Node2D"]
+script = ExtResource("1_gbvdy")
+attack_class = ExtResource("2_t37yx")
+
+[node name="Held" type="Node2D" parent="."]
+visible = false
+position = Vector2(5, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Held"]
+unique_name_in_owner = true
+texture = ExtResource("1_h5w1x")
+
+[node name="FirePoint" type="Marker2D" parent="Held"]
+unique_name_in_owner = true
+
+[node name="Grounded" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Grounded"]
+texture = ExtResource("1_h5w1x")
+
+[node name="Area2D" type="Area2D" parent="Grounded"]
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounded/Area2D"]
+shape = SubResource("CircleShape2D_fcgqh")
+
+[node name="IconComponent" type="Node" parent="."]
+script = ExtResource("2_w2ami")
+icon = ExtResource("1_h5w1x")
+
+[node name="WeaponTriggerComponent" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_34ten")
+trigger_type = 1
+fire_rate = 0.5
+
+[node name="DamageComponent" type="Node" parent="."]
+script = ExtResource("4_mwtoc")
+min_plain = 1.0
+max_plain = 10.0

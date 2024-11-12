@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dds7gnqdq6e50"]
+
+[ext_resource type="Script" path="res://core/global/audio/audio.gd" id="1_4dgkd"]
+[ext_resource type="Script" path="res://core/global/audio/sound_effect.gd" id="2_5lsj7"]
+[ext_resource type="AudioStream" uid="uid://bot5dn2h66t82" path="res://assets/sounds/step_1.wav" id="3_101j6"]
+
+[sub_resource type="Resource" id="Resource_7kc3o"]
+script = ExtResource("2_5lsj7")
+name = 1
+sound = ExtResource("3_101j6")
+limit = 5
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+
+[node name="Audio" type="Node2D"]
+script = ExtResource("1_4dgkd")
+sound_effects = Array[ExtResource("2_5lsj7")]([SubResource("Resource_7kc3o")])

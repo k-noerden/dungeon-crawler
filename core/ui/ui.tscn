@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfcv3hqo7ir3k"]
+
+[ext_resource type="Script" path="res://core/ui/ui.gd" id="1_v31qu"]
+[ext_resource type="Texture2D" uid="uid://ds54kkaidy30i" path="res://entities/weapons/machine_gun/machine_gun.png" id="2_ce15g"]
+[ext_resource type="Texture2D" uid="uid://6qeki4jxxps6" path="res://core/ui/selected.png" id="3_6e32d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnfb8"]
+bg_color = Color(0, 0, 0, 0.12549)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wucyu"]
+bg_color = Color(0, 0, 0, 0.12549)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24uaa"]
+bg_color = Color(0, 0, 0, 0.12549)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyfi8"]
+bg_color = Color(0, 0, 0, 0.12549)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_xvhn4"]
+font_size = 6
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v31qu")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 10.0
+value = 40.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nnfb8")
+
+[node name="Inventory0" type="TextureRect" parent="HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ce15g")
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wucyu")
+
+[node name="Inventory1" type="TextureRect" parent="HBoxContainer/PanelContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ce15g")
+
+[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_24uaa")
+
+[node name="Inventory2" type="TextureRect" parent="HBoxContainer/PanelContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ce15g")
+
+[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tyfi8")
+
+[node name="Inventory3" type="TextureRect" parent="HBoxContainer/PanelContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ce15g")
+
+[node name="Selected" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 176.0
+offset_right = 208.0
+offset_bottom = 32.0
+texture = ExtResource("3_6e32d")
+
+[node name="Points" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 84.0
+offset_top = 36.0
+offset_right = 123.0
+offset_bottom = 52.0
+text = "0"
+label_settings = SubResource("LabelSettings_xvhn4")

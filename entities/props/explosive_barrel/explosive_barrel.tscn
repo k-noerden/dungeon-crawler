@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://g4e3l0o6xuog"]
+
+[ext_resource type="Script" path="res://entities/props/explosive_barrel/explosive_barrel.gd" id="1_0qm10"]
+[ext_resource type="Texture2D" uid="uid://cyaj131qgtypc" path="res://entities/props/explosive_barrel/explosive-barrel.png" id="1_rqjp4"]
+[ext_resource type="Script" path="res://core/components/stats_component.gd" id="3_vygkc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywqme"]
+radius = 6.08276
+
+[node name="ExplosiveBarrel" type="StaticBody2D"]
+collision_layer = 257
+script = ExtResource("1_0qm10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_ywqme")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+texture = ExtResource("1_rqjp4")
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("3_vygkc")
+max_health = 20.0
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(0, -5)
+radius = 11.0
+vertices = PackedVector2Array(0, 0)

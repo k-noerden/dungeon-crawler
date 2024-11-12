@@ -1,0 +1,163 @@
+[gd_scene load_steps=25 format=3 uid="uid://cy7mgcnvmji14"]
+
+[ext_resource type="Script" path="res://entities/mobs/robot_short/robot_short.gd" id="1_lpa6i"]
+[ext_resource type="Texture2D" uid="uid://beff1cebvy2e8" path="res://entities/mobs/robot_short/robot-short.png" id="1_rg0pk"]
+[ext_resource type="Script" path="res://core/components/stats_component.gd" id="3_j1hqf"]
+[ext_resource type="Script" path="res://core/components/die_component.gd" id="4_2jsk2"]
+[ext_resource type="Script" path="res://core/components/move_component.gd" id="5_e0oya"]
+[ext_resource type="Script" path="res://core/components/state_machine_component.gd" id="6_4o7x8"]
+[ext_resource type="Script" path="res://core/ai/states/wander_state.gd" id="7_6xpjm"]
+[ext_resource type="Script" path="res://core/ai/states/attack_state.gd" id="7_au5uk"]
+[ext_resource type="Script" path="res://core/ai/states/stand_still_state.gd" id="7_cdj7t"]
+[ext_resource type="PackedScene" uid="uid://chvw5ofmm0mve" path="res://entities/attacks/bullet/bullet.tscn" id="8_33lff"]
+[ext_resource type="Script" path="res://core/ai/detectors/target_seen_detector.gd" id="9_76tv7"]
+[ext_resource type="Script" path="res://core/components/damage_component.gd" id="9_c1oy7"]
+[ext_resource type="Script" path="res://core/ai/states/track_last_seen_state.gd" id="10_kwdid"]
+[ext_resource type="Script" path="res://core/ai/detectors/duration_detector.gd" id="11_onx6r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ya8ab"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55fsk"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qx2a"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a0sh"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3luo"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sahh"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_indq5"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrlhh"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvdfb"]
+atlas = ExtResource("1_rg0pk")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fc7gn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55fsk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qx2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a0sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3luo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sahh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_indq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrlhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvdfb")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="RobotShort" type="CharacterBody2D"]
+collision_layer = 256
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_lpa6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_ya8ab")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_fc7gn")
+animation = &"run"
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("3_j1hqf")
+max_health = 20.0
+
+[node name="DieComponent" type="Node" parent="."]
+script = ExtResource("4_2jsk2")
+
+[node name="MoveComponent" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+script = ExtResource("5_e0oya")
+sound = 1
+sound_interval = 0.5
+sound_speed_multiplier = 0.0
+
+[node name="StateMachineComponent" type="Node2D" parent="."]
+script = ExtResource("6_4o7x8")
+vision_mask = 1
+
+[node name="AttackState" type="Node2D" parent="StateMachineComponent"]
+script = ExtResource("7_au5uk")
+attack_class = ExtResource("8_33lff")
+min_attack_delay = 0.4
+halt_duration = 0.1
+between_shots = 1
+attack_mask = 4097
+
+[node name="DamageComponent" type="Node" parent="StateMachineComponent/AttackState"]
+script = ExtResource("9_c1oy7")
+min_plain = 10.0
+
+[node name="TargetSeenDetector" type="Node2D" parent="StateMachineComponent/AttackState"]
+script = ExtResource("9_76tv7")
+next_state = "TrackLastSeenState"
+negated = true
+
+[node name="TrackLastSeenState" type="Node2D" parent="StateMachineComponent"]
+visible = false
+script = ExtResource("10_kwdid")
+lost_track_state = "WanderState"
+
+[node name="TargetSeenDetector" type="Node2D" parent="StateMachineComponent/TrackLastSeenState"]
+script = ExtResource("9_76tv7")
+next_state = "AttackState"
+
+[node name="WanderState" type="Node2D" parent="StateMachineComponent"]
+script = ExtResource("7_6xpjm")
+
+[node name="TargetSeenDetector" type="Node2D" parent="StateMachineComponent/WanderState"]
+script = ExtResource("9_76tv7")
+next_state = "TrackLastSeenState"
+max_distance = 200
+
+[node name="StandStillState" type="Node2D" parent="StateMachineComponent"]
+script = ExtResource("7_cdj7t")
+
+[node name="DurationDetector" type="Node2D" parent="StateMachineComponent/StandStillState"]
+script = ExtResource("11_onx6r")
+next_state = "WanderState"

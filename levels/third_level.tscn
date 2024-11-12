@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://qs002m5vuoon"]
+
+[ext_resource type="PackedScene" uid="uid://g4e3l0o6xuog" path="res://entities/props/explosive_barrel/explosive_barrel.tscn" id="1_uakng"]
+[ext_resource type="PackedScene" uid="uid://cy7mgcnvmji14" path="res://entities/mobs/robot_short/robot_short.tscn" id="2_1qpq2"]
+
+[node name="ThirdLevel" type="Node2D"]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(141, 140, 138, 47, 367, 64, 349, 199)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="ExplosiveBarrel" parent="." instance=ExtResource("1_uakng")]
+position = Vector2(129, 59)
+
+[node name="ExplosiveBarrel2" parent="." instance=ExtResource("1_uakng")]
+position = Vector2(377, 78)
+
+[node name="ExplosiveBarrel3" parent="." instance=ExtResource("1_uakng")]
+position = Vector2(356, 230)
+
+[node name="RobotShort" parent="." instance=ExtResource("2_1qpq2")]
+position = Vector2(70, 194)
