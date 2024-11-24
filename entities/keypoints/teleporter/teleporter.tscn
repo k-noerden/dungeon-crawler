@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://c4rxlp54mg02b"]
 
 [ext_resource type="Script" path="res://entities/keypoints/teleporter/teleporter.gd" id="1_5h7aj"]
-[ext_resource type="Texture2D" uid="uid://b7s84odgjgj0k" path="res://entities/keypoints/waypoint.png" id="2_egn1x"]
+[ext_resource type="Texture2D" uid="uid://b7s84odgjgj0k" path="res://entities/keypoints/teleporter/teleporter.png" id="2_egn1x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hyfd6"]
 radius = 16.0

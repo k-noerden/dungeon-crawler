@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7s84odgjgj0k"
-path="res://.godot/imported/waypoint.png-a9653420a80aa9d38c59464a7d8bf34c.ctex"
+path="res://.godot/imported/teleporter.png-fceb47178a989b9812fcd76661063005.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/keypoints/waypoint.png"
-dest_files=["res://.godot/imported/waypoint.png-a9653420a80aa9d38c59464a7d8bf34c.ctex"]
+source_file="res://entities/keypoints/teleporter/teleporter.png"
+dest_files=["res://.godot/imported/teleporter.png-fceb47178a989b9812fcd76661063005.ctex"]
 
 [params]
 
