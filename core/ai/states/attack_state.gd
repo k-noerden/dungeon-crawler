@@ -23,7 +23,7 @@ var halt_timer = 0.0
 
 func _ready() -> void:
 	damage_component = $DamageComponent
-	assert(attack_class != null)
+	assert(attack_class != null, "Missing attack: " + str(owner))
 
 func _physics_process(delta: float) -> void:
 	fire_timer -= delta

@@ -12,6 +12,6 @@ func die():
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	var stats = body.get_meta("stats")
+	var stats = body.get_meta("stats", false)
 	if stats:
 		stats.damage(damage)

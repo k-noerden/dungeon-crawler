@@ -113,7 +113,6 @@ script = ExtResource("4_2jsk2")
 path_postprocessing = 1
 avoidance_enabled = true
 script = ExtResource("5_e0oya")
-sound = 1
 sound_interval = 0.5
 sound_speed_multiplier = 0.0
 

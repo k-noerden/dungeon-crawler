@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	var stats = body.get_meta("stats")
+	var stats = body.get_meta("stats", false)
 	if stats:
 		stats.damage(damage)
 	queue_free()
