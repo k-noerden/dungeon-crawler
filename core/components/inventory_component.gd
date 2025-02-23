@@ -35,6 +35,7 @@ func pickup_weapon(weapon: Node) -> void:
 	owner.current_weapon = weapon
 	weapon.reparent(self)
 	weapon.pickup(owner)
+	weapon.equip()
 	inventory_updated.emit()
 
 

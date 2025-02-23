@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7oq7pd8dhn67"]
+[gd_scene load_steps=10 format=3 uid="uid://c7oq7pd8dhn67"]
 
 [ext_resource type="Script" path="res://entities/weapons/sword/sword.gd" id="1_gbvdy"]
 [ext_resource type="Texture2D" uid="uid://cjq6j8otxq1lj" path="res://entities/weapons/sword/sword.png" id="1_h5w1x"]
@@ -7,33 +7,43 @@
 [ext_resource type="Script" path="res://core/components/weapon_trigger_component.gd" id="3_34ten"]
 [ext_resource type="Script" path="res://core/components/damage_component.gd" id="4_mwtoc"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_frgbt"]
+atlas = ExtResource("1_h5w1x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eiu5q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frgbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcgqh"]
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_gbvdy")
 attack_class = ExtResource("2_t37yx")
+animation_hold = "default"
 
-[node name="Held" type="Node2D" parent="."]
-visible = false
+[node name="Pivot" type="Node2D" parent="."]
 position = Vector2(5, -8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Held"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 unique_name_in_owner = true
-texture = ExtResource("1_h5w1x")
+sprite_frames = SubResource("SpriteFrames_eiu5q")
 
-[node name="FirePoint" type="Marker2D" parent="Held"]
-unique_name_in_owner = true
+[node name="FirePoint" type="Marker2D" parent="Pivot"]
 
-[node name="Grounded" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Grounded"]
-texture = ExtResource("1_h5w1x")
-
-[node name="Area2D" type="Area2D" parent="Grounded"]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8192
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounded/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, -8)
 shape = SubResource("CircleShape2D_fcgqh")
 
 [node name="IconComponent" type="Node" parent="."]

@@ -31,7 +31,8 @@ func inventory_updated() -> void:
 		if weapon == null:
 			icons[i].texture = null
 		else:
-			icons[i].texture = inventory.weapons[i].get_meta("IconComponent").icon
+			var icon = inventory.weapons[i].get_meta("IconComponent")
+			icons[i].texture = icon.icon if icon else inventory.weapons[i].icon
 			#icons[i].get_parent().get_stylebox("panel").border_width_left = 3
 	#print(icons[2].global_position)
 	%Selected.global_position = icons[inventory.current_index].global_position
