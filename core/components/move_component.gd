@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if sound_timer <= 0:
 		#var current_speed = owner.velocity.length()
 		var current_speed = speed
-		print(current_speed)
+		# print(current_speed)
 		if current_speed < 1:
 			sound_timer += delta
 		else:
