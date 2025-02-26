@@ -31,7 +31,6 @@ func _ready() -> void:
 	icon = %AnimatedSprite2D.sprite_frames.get_frame_texture(animation_hold, 0)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	print("anim stop");
 	if animation_hold:
 		%AnimatedSprite2D.play(animation_hold)
 

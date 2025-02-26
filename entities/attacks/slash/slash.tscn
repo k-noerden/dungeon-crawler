@@ -39,6 +39,7 @@ animations = [{
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_307cj")
+animation_start = "slash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(13, 0)
