@@ -1,7 +1,7 @@
 extends Area2D
 
-var speed = 600
-var range = 1000
+@export var speed = 600
+@export var range = 1000
 var moved_distance = 0
 var velocity: Vector2
 var damage: Damage
