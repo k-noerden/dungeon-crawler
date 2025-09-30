@@ -1,57 +1,53 @@
+@icon("res://assets/icons/configurable.svg")
 class_name MoveComponent
-extends NavigationAgent2D
-
-func _enter_tree() -> void:
-	owner.set_meta("MoveComponent", self)
-func _exit_tree() -> void:
-	if owner != null: # owner will be freed before children
-		owner.remove_meta("MoveComponent")
+extends Node2D
 
 @export var speed = 100.0
-@export var animate = true
-@export var animation: AnimatedSprite2D = null
-@export var auto = true;
-@export var sound: AN.Sound = AN.Sound.NO_SOUND
-@export var sound_interval = 0.1
-@export var sound_speed_multiplier: float = 1.0
-var sound_timer = 0.0
+@export var move_animation: String
+@export var idle_animation: String
+
 var enabled = true
+var navigation_agent: NavigationAgent2D
+var animation: AnimatedSprite2D
+
+func _enter_tree() -> void:
+	owner.set_meta("move", self)
+
+func _exit_tree() -> void:
+	if owner: # owner will be freed before children
+		owner.remove_meta("move")
+
 
 func _ready() -> void:
-	velocity_computed.connect(_on_velocity_computed)
-	if auto:
+	navigation_agent = null
+	for child in get_children():
+		if child is NavigationAgent2D:
+			navigation_agent = child
+			break
+	if navigation_agent == null:
+		navigation_agent = NavigationAgent2D.new()
+		add_child(navigation_agent)
 		var shape = owner.get_node("CollisionShape2D").shape
 		assert(shape is CircleShape2D)
-		radius = shape.radius
-		path_postprocessing = NavigationPathQueryParameters2D.PathPostProcessing.PATH_POSTPROCESSING_EDGECENTERED
-		avoidance_enabled = true
-	if animate and animation == null:
-		animation = owner.get_node("AnimatedSprite2D")
-		assert(animation != null)
-	assert(animate == true if animation != null else true)
+		navigation_agent.radius = shape.radius
+		navigation_agent.path_postprocessing = NavigationPathQueryParameters2D.PathPostProcessing.PATH_POSTPROCESSING_EDGECENTERED
+		navigation_agent.avoidance_enabled = true
+	navigation_agent.velocity_computed.connect(_on_velocity_computed)
+	animation = owner.get_node("AnimatedSprite2D")
+	assert(animation)
+	assert(animation.sprite_frames.has_animation(move_animation), "Missing move animation in " + str(owner))
+	assert(animation.sprite_frames.has_animation(idle_animation), "Missing idle animation in " + str(owner))
 
 func _physics_process(delta: float) -> void:
-	sound_timer -= delta
-	if sound_timer <= 0:
-		#var current_speed = owner.velocity.length()
-		var current_speed = speed
-		# print(current_speed)
-		if current_speed < 1:
-			sound_timer += delta
-		else:
-			Audio.play(sound, owner.global_position)
-			#sound_timer = (1.0 / current_speed) * sound_speed_multiplier
-			sound_timer = sound_interval
-			#print(sound_timer)
 	if !enabled:
 		return
-	if is_navigation_finished():
+	if navigation_agent.is_navigation_finished():
 		return
-	var direction = owner.global_position.direction_to(get_next_path_position())
+	var direction = owner.global_position.direction_to(navigation_agent.get_next_path_position())
 	var new_velocity = direction * speed
 	#owner.velocity = new_velocity
-	if avoidance_enabled:
-		set_velocity(new_velocity)
+	if navigation_agent.avoidance_enabled:
+		navigation_agent.set_velocity(new_velocity)
 	else:
 		_on_velocity_computed(new_velocity)
 
@@ -64,10 +60,15 @@ func _on_velocity_computed(safe_velocity: Vector2) -> void:
 func move() -> bool:
 	#owner.velocity = new_velocity
 	var collided = owner.move_and_slide()
-	if animate:
-		if owner.velocity.length() > 0:
-			animation.play("run")
-			animation.flip_h = owner.velocity.x < 0
-		else:
-			animation.play("idle")
+	if owner.velocity.length() > 0:
+		animation.play(move_animation)
+		animation.flip_h = owner.velocity.x < 0
+	else:
+		animation.play(idle_animation)
 	return collided
+
+
+# func _unhandled_input(event: InputEvent) -> void:
+# 	if event.is_action_pressed("debug"):
+# 		print("debug Mouse: ", get_global_mouse_position())
+# 		# navigation_agent.target_position = get_global_mouse_position()

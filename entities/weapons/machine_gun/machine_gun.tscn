@@ -1,70 +1,76 @@
-[gd_scene load_steps=20 format=3 uid="uid://eclv1v2mxnel"]
+[gd_scene load_steps=21 format=3 uid="uid://b70chirirsryt"]
 
-[ext_resource type="Texture2D" uid="uid://ds54kkaidy30i" path="res://entities/weapons/machine_gun/machine_gun.png" id="1_upkb5"]
-[ext_resource type="Script" path="res://entities/weapons/machine_gun/machine_gun.gd" id="1_xgcg4"]
-[ext_resource type="PackedScene" uid="uid://chvw5ofmm0mve" path="res://entities/attacks/bullet/bullet.tscn" id="2_ll72b"]
-[ext_resource type="Script" path="res://core/components/weapon_trigger_component.gd" id="3_rm3oc"]
-[ext_resource type="Script" path="res://core/components/damage_component.gd" id="5_xhle5"]
+[ext_resource type="Texture2D" uid="uid://cfqnlsu5la8oj" path="res://entities/weapons/machine_gun/machine_gun.png" id="1_k23ua"]
+[ext_resource type="Script" uid="uid://ds2e47k38sq0a" path="res://core/components/item_aim_component.gd" id="1_t5ay0"]
+[ext_resource type="Script" uid="uid://di5yieyrn8s8j" path="res://core/components/item_component.gd" id="2_isqmq"]
+[ext_resource type="PackedScene" uid="uid://da5ivq5p61x4w" path="res://entities/attacks/bullet/bullet.tscn" id="2_ykmj4"]
+[ext_resource type="Script" uid="uid://dfpu0j0omhqtx" path="res://core/components/trigger_automatic_component.gd" id="4_vvy8o"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ueqn"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="CircleShape2D" id="CircleShape2D_isqmq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isqmq"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3ris"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5ay0"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(32, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyxs6"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvy8o"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(64, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ma4by"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykmj4"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0xm7"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_81on7"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdg8k"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_u67dc"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0mx66"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui2pd"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(96, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_axdvi"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_be5ec"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqouy"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq83s"]
+atlas = ExtResource("1_k23ua")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53iar"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3t0m"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv4e8"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vl18f"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_odjsi"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvbrd"]
-atlas = ExtResource("1_upkb5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukpje"]
+atlas = ExtResource("1_k23ua")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fr23k"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_be5ec"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ueqn")
+"texture": SubResource("AtlasTexture_isqmq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m3ris")
+"texture": SubResource("AtlasTexture_t5ay0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yyxs6")
+"texture": SubResource("AtlasTexture_vvy8o")
 }],
 "loop": false,
 "name": &"equip",
@@ -72,79 +78,85 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ma4by")
+"texture": SubResource("AtlasTexture_ykmj4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k0xm7")
+"texture": SubResource("AtlasTexture_81on7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jdg8k")
+"texture": SubResource("AtlasTexture_u67dc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0mx66")
+"texture": SubResource("AtlasTexture_ui2pd")
 }],
 "loop": false,
 "name": &"fire",
-"speed": 12.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_axdvi")
+"texture": SubResource("AtlasTexture_be5ec")
+}],
+"loop": true,
+"name": &"ground",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq83s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gqouy")
+"texture": SubResource("AtlasTexture_53iar")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x3t0m")
+"texture": SubResource("AtlasTexture_pv4e8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vl18f")
+"texture": SubResource("AtlasTexture_odjsi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bvbrd")
+"texture": SubResource("AtlasTexture_ukpje")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gln1w"]
-
 [node name="MachineGun" type="Node2D"]
-script = ExtResource("1_xgcg4")
-attack_class = ExtResource("2_ll72b")
-sound = 1
-animation_equip = "equip"
-animation_hold = "idle"
-animation_fire = "fire"
 
-[node name="Pivot" type="Node2D" parent="."]
+[node name="TriggerAutomaticComponent" type="Node2D" parent="."]
+script = ExtResource("4_vvy8o")
+fire_rate = 0.1
+equip_animation = "equip"
+idle_animation = "idle"
+fire_animation = "fire"
+metadata/_custom_type_script = "uid://dfpu0j0omhqtx"
+
+[node name="Bullet" parent="TriggerAutomaticComponent" instance=ExtResource("2_ykmj4")]
+collision_mask = 5
+
+[node name="ItemAimComponent" type="Node2D" parent="."]
+script = ExtResource("1_t5ay0")
+metadata/_custom_type_script = "uid://ds2e47k38sq0a"
+
+[node name="Pivot" type="Node2D" parent="ItemAimComponent"]
 position = Vector2(0, -14)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
-unique_name_in_owner = true
+[node name="Hold" type="Marker2D" parent="ItemAimComponent/Pivot"]
 position = Vector2(12, 0)
-sprite_frames = SubResource("SpriteFrames_fr23k")
-animation = &"idle"
 
-[node name="FirePoint" type="Marker2D" parent="Pivot"]
-position = Vector2(18, 0)
+[node name="ItemComponent" type="Area2D" parent="."]
+script = ExtResource("2_isqmq")
+ground_animation = "ground"
+inventory_animation = "ground"
+metadata/_custom_type_script = "uid://di5yieyrn8s8j"
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8192
-collision_mask = 0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemComponent"]
+shape = SubResource("CircleShape2D_isqmq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(12, -14)
-shape = SubResource("CircleShape2D_gln1w")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_be5ec")
+animation = &"ground"
 
-[node name="WeaponTriggerComponent" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("3_rm3oc")
-trigger_type = 1
-fire_rate = 0.1
-
-[node name="DamageComponent" type="Node" parent="."]
-script = ExtResource("5_xhle5")
-min_plain = 1.0
-max_plain = 5.0
+[node name="FirePoint" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(6, 0)

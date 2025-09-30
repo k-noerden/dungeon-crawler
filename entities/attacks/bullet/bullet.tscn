@@ -1,37 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://chvw5ofmm0mve"]
+[gd_scene load_steps=8 format=3 uid="uid://da5ivq5p61x4w"]
 
-[ext_resource type="Script" path="res://entities/attacks/bullet/bullet.gd" id="1_uvap4"]
-[ext_resource type="Texture2D" uid="uid://blok4voytwu4x" path="res://entities/attacks/bullet/bullet.png" id="2_lbqxx"]
+[ext_resource type="Script" uid="uid://daqwgl54rf2pw" path="res://entities/attacks/bullet/bullet.gd" id="1_caml1"]
+[ext_resource type="Texture2D" uid="uid://cgrxy4p7ymjwi" path="res://entities/attacks/bullet/bullet.png" id="2_uhxwy"]
+[ext_resource type="Script" uid="uid://dia1c7nu47836" path="res://core/components/projectile_attack_component.gd" id="3_uhxwy"]
+[ext_resource type="Script" uid="uid://bqng2473qn6ds" path="res://core/components/damage_plain_component.gd" id="4_0el72"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_34k18"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0el72"]
 radius = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1cmw0"]
-atlas = ExtResource("2_lbqxx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho45e"]
+atlas = ExtResource("2_uhxwy")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wyu2y"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sriyl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1cmw0")
+"texture": SubResource("AtlasTexture_ho45e")
 }],
 "loop": true,
-"name": &"loop",
+"name": &"default",
 "speed": 5.0
 }]
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 0
-script = ExtResource("1_uvap4")
-animation_loop = "loop"
+script = ExtResource("1_caml1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_34k18")
+shape = SubResource("CircleShape2D_0el72")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
-sprite_frames = SubResource("SpriteFrames_wyu2y")
-animation = &"loop"
+sprite_frames = SubResource("SpriteFrames_sriyl")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="ProjectileAttackComponent" type="Node2D" parent="."]
+script = ExtResource("3_uhxwy")
+loop_animation = "default"
+metadata/_custom_type_script = "uid://dia1c7nu47836"
+
+[node name="DamagePlainComponent" type="Node2D" parent="."]
+script = ExtResource("4_0el72")
+metadata/_custom_type_script = "uid://bqng2473qn6ds"

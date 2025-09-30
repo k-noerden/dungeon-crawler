@@ -1,8 +1,5 @@
+@icon("res://assets/icons/configurable.svg")
 extends Area2D
 
-func _ready() -> void:
-	$AnimatedSprite2D.animation_looped.connect(die)
-	$AnimatedSprite2D.play("explosion")
-
-func die():
-	queue_free()
+@export var min_damage = 10.0
+@export var max_damage = 20.0

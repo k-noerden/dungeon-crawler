@@ -1,82 +1,77 @@
-[gd_scene load_steps=13 format=3 uid="uid://curg47464nvla"]
+[gd_scene load_steps=12 format=3 uid="uid://y5wi55i2qknx"]
 
-[ext_resource type="Script" path="res://entities/pickups/point/point.gd" id="1_bc4n1"]
-[ext_resource type="Script" path="res://core/components/touch_component.gd" id="1_hre4o"]
-[ext_resource type="Texture2D" uid="uid://d2fe3pgxyi62i" path="res://entities/pickups/point/point.png" id="1_qdfbn"]
+[ext_resource type="Script" uid="uid://c5xdjw37y5sp6" path="res://core/components/touch_point.gd" id="2_644q4"]
+[ext_resource type="Texture2D" uid="uid://b1prra1jknxxk" path="res://entities/pickups/point/point.png" id="2_b0nbx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_realy"]
-radius = 4.12311
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2w60"]
-atlas = ExtResource("1_qdfbn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkhfj"]
+atlas = ExtResource("2_b0nbx")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fmxly"]
-atlas = ExtResource("1_qdfbn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qf0p"]
+atlas = ExtResource("2_b0nbx")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdog1"]
-atlas = ExtResource("1_qdfbn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cg2x"]
+atlas = ExtResource("2_b0nbx")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4cp4e"]
-atlas = ExtResource("1_qdfbn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ag6x"]
+atlas = ExtResource("2_b0nbx")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5jvjo"]
-atlas = ExtResource("1_qdfbn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pty1c"]
+atlas = ExtResource("2_b0nbx")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qtch0"]
-atlas = ExtResource("1_qdfbn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cjgd"]
+atlas = ExtResource("2_b0nbx")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p7kw4"]
-atlas = ExtResource("1_qdfbn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcjvt"]
+atlas = ExtResource("2_b0nbx")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tei5k"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1dech"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a2w60")
+"texture": SubResource("AtlasTexture_bkhfj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fmxly")
+"texture": SubResource("AtlasTexture_8qf0p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jdog1")
+"texture": SubResource("AtlasTexture_4cg2x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4cp4e")
+"texture": SubResource("AtlasTexture_1ag6x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5jvjo")
+"texture": SubResource("AtlasTexture_pty1c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qtch0")
+"texture": SubResource("AtlasTexture_3cjgd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p7kw4")
+"texture": SubResource("AtlasTexture_vcjvt")
 }],
 "loop": true,
-"name": &"bounce",
+"name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0nbx"]
+radius = 4.0
+
 [node name="Point" type="Node2D"]
-script = ExtResource("1_bc4n1")
-
-[node name="TouchComponent" type="Area2D" parent="."]
-script = ExtResource("1_hre4o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchComponent"]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_realy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -4)
-sprite_frames = SubResource("SpriteFrames_tei5k")
-animation = &"bounce"
-frame_progress = 0.0658449
+sprite_frames = SubResource("SpriteFrames_1dech")
+autoplay = "default"
+
+[node name="TouchPoint" type="Area2D" parent="."]
+script = ExtResource("2_644q4")
+metadata/_custom_type_script = "uid://c5xdjw37y5sp6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchPoint"]
+shape = SubResource("CircleShape2D_b0nbx")

@@ -1,29 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://g4e3l0o6xuog"]
+[gd_scene load_steps=8 format=3 uid="uid://bhcxymt28lnpk"]
 
-[ext_resource type="Script" path="res://entities/props/explosive_barrel/explosive_barrel.gd" id="1_0qm10"]
-[ext_resource type="Texture2D" uid="uid://cyaj131qgtypc" path="res://entities/props/explosive_barrel/explosive-barrel.png" id="1_rqjp4"]
-[ext_resource type="Script" path="res://core/components/stats_component.gd" id="3_vygkc"]
+[ext_resource type="Texture2D" uid="uid://byhwvttbf15hv" path="res://entities/props/explosive_barrel/explosive-barrel.png" id="1_bsasn"]
+[ext_resource type="Script" uid="uid://bpbp6muasvyrb" path="res://core/components/health_component.gd" id="2_bpsum"]
+[ext_resource type="Script" uid="uid://b8tblfh37in4j" path="res://core/components/die_component.gd" id="3_8qhjq"]
+[ext_resource type="PackedScene" uid="uid://crqi6bwx1rt1h" path="res://entities/attacks/explosion/explosion.tscn" id="4_bpsum"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ywqme"]
-radius = 6.08276
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsasn"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw72x"]
+atlas = ExtResource("1_bsasn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whnuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw72x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ExplosiveBarrel" type="StaticBody2D"]
-collision_layer = 257
-script = ExtResource("1_0qm10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_ywqme")
+shape = SubResource("CircleShape2D_bsasn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13)
-texture = ExtResource("1_rqjp4")
+sprite_frames = SubResource("SpriteFrames_whnuf")
+autoplay = "default"
 
-[node name="StatsComponent" type="Node" parent="."]
-script = ExtResource("3_vygkc")
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("2_bpsum")
 max_health = 20.0
+metadata/_custom_type_script = "uid://bpbp6muasvyrb"
+
+[node name="DieComponent" type="Node2D" parent="."]
+script = ExtResource("3_8qhjq")
+metadata/_custom_type_script = "uid://b8tblfh37in4j"
+
+[node name="Explosion" parent="DieComponent" instance=ExtResource("4_bpsum")]
+visible = false
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, -5)
 radius = 11.0
-vertices = PackedVector2Array(0, 0)

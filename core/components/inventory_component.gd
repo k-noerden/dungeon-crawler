@@ -2,60 +2,61 @@ class_name InventoryComponent
 extends Node2D
 
 signal inventory_updated
-var current_index = 0;
-var weapons: Array[Node] = [null, null, null, null]
+var current_index = 0
+var items: Array[Node] = [null, null, null, null]
 
 func _enter_tree() -> void:
 	owner.set_meta("inventory", self)
-func _exit_tree() -> void:
-	owner.remove_meta("inventory")
 
-func _ready() -> void:
-	pass
+func _exit_tree() -> void:
+	if owner:
+		owner.remove_meta("inventory")
+
 
 func switch_to_next() -> void:
 	current_index += 1
-	if current_index >= weapons.size():
+	if current_index >= items.size():
 		current_index = 0
-	switch_weapon()
+	switch_item()
 
 func switch_to_previous() -> void:
 	current_index -= 1
 	if current_index < 0:
-		current_index = weapons.size() - 1
-	switch_weapon()
+		current_index = items.size() - 1
+	switch_item()
 
 func switch_to(index: int) -> void:
 	current_index = index
-	switch_weapon()
+	switch_item()
 
-func pickup_weapon(weapon: Node) -> void:
-	drop_weapon()
-	weapons[current_index] = weapon
-	owner.current_weapon = weapon
-	weapon.reparent(self)
-	weapon.pickup(owner)
-	weapon.equip()
+func switch_item() -> void:
+	inventory_updated.emit()
+	if Global.current_item != null:
+		Global.current_item.unequip()
+		Global.current_item.owner.hide()
+	Global.current_item = items[current_index]
+	if Global.current_item != null:
+		Global.current_item.owner.show()
+		Global.current_item.equip()
+
+
+func pickup_item(item: Node) -> void:
+	drop_item()
+	items[current_index] = item
+	Global.current_item = item
+	item.owner.reparent(self)
+	item.pickup(owner)
+	item.equip()
 	inventory_updated.emit()
 
 
-func drop_weapon() -> void:
-	if weapons[current_index] == null:
+func drop_item() -> void:
+	if items[current_index] == null:
 		return
-	var weapon = weapons[current_index]
-	weapons[current_index] = null
-	owner.current_weapon = null
-	weapon.reparent(Global.game)
-	weapon.drop(owner)
+	var item = items[current_index]
+	items[current_index] = null
+	Global.current_item = null
+	item.owner.reparent(LevelLoader.current_level)
+	item.unequip()
+	item.drop(owner)
 	inventory_updated.emit()
-
-
-func switch_weapon() -> void:
-	inventory_updated.emit()
-	if owner.current_weapon != null:
-		owner.current_weapon.unequip()
-		owner.current_weapon.hide()
-	owner.current_weapon = weapons[current_index]
-	if owner.current_weapon != null:
-		owner.current_weapon.show()
-		owner.current_weapon.equip()

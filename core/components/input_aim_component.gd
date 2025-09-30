@@ -1,11 +1,10 @@
-class_name InputAimComponent
-extends Component
+extends Node2D
 
 func _physics_process(delta: float) -> void:
-	if owner.current_weapon == null:
+	if Global.current_weapon == null:
 		return
-	owner.current_weapon.target = owner.get_global_mouse_position()
+	# Global.current_weapon.target = owner.get_global_mouse_position()
 	if Input.is_action_just_pressed("fire"):
-		owner.current_weapon.get_meta("trigger").trigger(true)
+		Global.current_weapon.get_meta("trigger").trigger(true)
 	elif Input.is_action_pressed("fire"):
-		owner.current_weapon.get_meta("trigger").trigger(false)
+		Global.current_weapon.get_meta("trigger").trigger(false)

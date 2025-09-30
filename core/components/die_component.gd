@@ -1,16 +1,15 @@
+@icon("res://assets/icons/configurable.svg")
 class_name DieComponent
-extends Component
+extends Node2D
 
-const Point = preload("res://entities/pickups/point/point.tscn")
+func _enter_tree() -> void:
+	owner.set_meta("die", self)
+	Utils.configure_templates(self)
 
-@export var points = 1
-@export var should_free = true
+func _exit_tree() -> void:
+	if owner:
+		owner.remove_meta("die")
 
-func die():
-	if points > 0:
-		var point = Point.instantiate()
-		point.points = points
-		point.global_position = owner.global_position
-		LevelLoader.current_level.add_child(point)
-	if should_free:
-		owner.queue_free()
+
+func die() -> void:
+	Utils.spawn(self, global_position, 0.0, null)

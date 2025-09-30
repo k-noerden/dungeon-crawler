@@ -1,62 +1,59 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7oq7pd8dhn67"]
+[gd_scene load_steps=9 format=3 uid="uid://4bra3se64kvf"]
 
-[ext_resource type="Script" path="res://entities/weapons/sword/sword.gd" id="1_gbvdy"]
-[ext_resource type="Texture2D" uid="uid://cjq6j8otxq1lj" path="res://entities/weapons/sword/sword.png" id="1_h5w1x"]
-[ext_resource type="PackedScene" uid="uid://igbb2whpqh66" path="res://entities/attacks/slash/slash.tscn" id="2_t37yx"]
-[ext_resource type="Script" path="res://core/components/icon_component.gd" id="2_w2ami"]
-[ext_resource type="Script" path="res://core/components/weapon_trigger_component.gd" id="3_34ten"]
-[ext_resource type="Script" path="res://core/components/damage_component.gd" id="4_mwtoc"]
+[ext_resource type="Script" uid="uid://b4r4vtw21koy3" path="res://core/components/trigger_semi_automatic_component.gd" id="1_o81w5"]
+[ext_resource type="Texture2D" uid="uid://7vy0604eh3nh" path="res://entities/weapons/sword/sword.png" id="2_dqysa"]
+[ext_resource type="PackedScene" uid="uid://ym3wxwss7mfj" path="res://entities/attacks/slash/slash.tscn" id="2_vulpu"]
+[ext_resource type="Script" uid="uid://ds2e47k38sq0a" path="res://core/components/item_aim_component.gd" id="3_vulpu"]
+[ext_resource type="Script" uid="uid://di5yieyrn8s8j" path="res://core/components/item_component.gd" id="4_f52eu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_frgbt"]
-atlas = ExtResource("1_h5w1x")
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wby6"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f52eu"]
+atlas = ExtResource("2_dqysa")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eiu5q"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wby6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_frgbt")
+"texture": SubResource("AtlasTexture_f52eu")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fcgqh"]
-
 [node name="Sword" type="Node2D"]
-script = ExtResource("1_gbvdy")
-attack_class = ExtResource("2_t37yx")
-animation_hold = "default"
 
-[node name="Pivot" type="Node2D" parent="."]
+[node name="TriggerSemiAutomaticComponent" type="Node2D" parent="."]
+script = ExtResource("1_o81w5")
+idle_animation = "default"
+fire_animation = "default"
+metadata/_custom_type_script = "uid://b4r4vtw21koy3"
+
+[node name="Slash" parent="TriggerSemiAutomaticComponent" instance=ExtResource("2_vulpu")]
+
+[node name="ItemAimComponent" type="Node2D" parent="."]
+script = ExtResource("3_vulpu")
+metadata/_custom_type_script = "uid://ds2e47k38sq0a"
+
+[node name="Pivot" type="Node2D" parent="ItemAimComponent"]
 position = Vector2(5, -8)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_eiu5q")
+[node name="Hold" type="Marker2D" parent="ItemAimComponent/Pivot"]
 
-[node name="FirePoint" type="Marker2D" parent="Pivot"]
+[node name="ItemComponent" type="Area2D" parent="."]
+script = ExtResource("4_f52eu")
+ground_animation = "default"
+inventory_animation = "default"
+metadata/_custom_type_script = "uid://di5yieyrn8s8j"
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8192
-collision_mask = 0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemComponent"]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_7wby6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(10, -8)
-shape = SubResource("CircleShape2D_fcgqh")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7wby6")
 
-[node name="IconComponent" type="Node" parent="."]
-script = ExtResource("2_w2ami")
-icon = ExtResource("1_h5w1x")
-
-[node name="WeaponTriggerComponent" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("3_34ten")
-trigger_type = 1
-fire_rate = 0.5
-
-[node name="DamageComponent" type="Node" parent="."]
-script = ExtResource("4_mwtoc")
-min_plain = 1.0
-max_plain = 10.0
+[node name="FirePoint" type="Marker2D" parent="AnimatedSprite2D"]
