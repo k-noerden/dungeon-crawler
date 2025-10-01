@@ -46,6 +46,4 @@ coordinate = Vector2(224, 192)
 
 [node name="Sign" parent="." instance=ExtResource("8_auvru")]
 position = Vector2(-73, -55)
-text = "Hello, world
-This is some long text
-Can you read it all"
+text = "Velkommen!"
