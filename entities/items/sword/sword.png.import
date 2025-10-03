@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfqnlsu5la8oj"
-path="res://.godot/imported/machine_gun.png-bc7cc05bbe3c14c4bf03bd0625c3be5a.ctex"
+uid="uid://7vy0604eh3nh"
+path="res://.godot/imported/sword.png-d53576416e254c6e181a53852438aeb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/weapons/machine_gun/machine_gun.png"
-dest_files=["res://.godot/imported/machine_gun.png-bc7cc05bbe3c14c4bf03bd0625c3be5a.ctex"]
+source_file="res://entities/items/sword/sword.png"
+dest_files=["res://.godot/imported/sword.png-d53576416e254c6e181a53852438aeb7.ctex"]
 
 [params]
 

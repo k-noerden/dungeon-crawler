@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://b70chirirsryt"]
 
-[ext_resource type="Texture2D" uid="uid://cfqnlsu5la8oj" path="res://entities/weapons/machine_gun/machine_gun.png" id="1_k23ua"]
+[ext_resource type="Texture2D" uid="uid://cfqnlsu5la8oj" path="res://entities/items/machine_gun/machine_gun.png" id="1_k23ua"]
 [ext_resource type="Script" uid="uid://ds2e47k38sq0a" path="res://core/components/item_aim_component.gd" id="1_t5ay0"]
 [ext_resource type="Script" uid="uid://di5yieyrn8s8j" path="res://core/components/item_component.gd" id="2_isqmq"]
 [ext_resource type="PackedScene" uid="uid://da5ivq5p61x4w" path="res://entities/attacks/bullet/bullet.tscn" id="2_ykmj4"]

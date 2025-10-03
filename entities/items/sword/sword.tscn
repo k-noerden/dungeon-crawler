@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://4bra3se64kvf"]
 
 [ext_resource type="Script" uid="uid://b4r4vtw21koy3" path="res://core/components/trigger_semi_automatic_component.gd" id="1_o81w5"]
-[ext_resource type="Texture2D" uid="uid://7vy0604eh3nh" path="res://entities/weapons/sword/sword.png" id="2_dqysa"]
+[ext_resource type="Texture2D" uid="uid://7vy0604eh3nh" path="res://entities/items/sword/sword.png" id="2_dqysa"]
 [ext_resource type="PackedScene" uid="uid://ym3wxwss7mfj" path="res://entities/attacks/slash/slash.tscn" id="2_vulpu"]
 [ext_resource type="Script" uid="uid://ds2e47k38sq0a" path="res://core/components/item_aim_component.gd" id="3_vulpu"]
 [ext_resource type="Script" uid="uid://di5yieyrn8s8j" path="res://core/components/item_component.gd" id="4_f52eu"]
