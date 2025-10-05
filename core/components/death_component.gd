@@ -1,5 +1,4 @@
-@icon("res://assets/icons/configurable.svg")
-class_name DieComponent
+class_name DeathComponent
 extends Node2D
 
 func _enter_tree() -> void:

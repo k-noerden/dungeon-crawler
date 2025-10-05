@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://byhwvttbf15hv" path="res://entities/props/explosive_barrel/explosive-barrel.png" id="1_bsasn"]
 [ext_resource type="Script" uid="uid://bpbp6muasvyrb" path="res://core/components/health_component.gd" id="2_bpsum"]
-[ext_resource type="Script" uid="uid://b8tblfh37in4j" path="res://core/components/die_component.gd" id="3_8qhjq"]
+[ext_resource type="Script" uid="uid://b8tblfh37in4j" path="res://core/components/death_component.gd" id="3_8qhjq"]
 [ext_resource type="PackedScene" uid="uid://crqi6bwx1rt1h" path="res://entities/attacks/explosion/explosion.tscn" id="4_bpsum"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bsasn"]
@@ -39,11 +39,11 @@ script = ExtResource("2_bpsum")
 max_health = 20.0
 metadata/_custom_type_script = "uid://bpbp6muasvyrb"
 
-[node name="DieComponent" type="Node2D" parent="."]
+[node name="DeathComponent" type="Node2D" parent="."]
 script = ExtResource("3_8qhjq")
 metadata/_custom_type_script = "uid://b8tblfh37in4j"
 
-[node name="Explosion" parent="DieComponent" instance=ExtResource("4_bpsum")]
+[node name="Explosion" parent="DeathComponent" instance=ExtResource("4_bpsum")]
 visible = false
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]

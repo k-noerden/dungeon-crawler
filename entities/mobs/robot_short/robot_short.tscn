@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://btpkkfrcbh2eu" path="res://entities/mobs/robot_short/robot-short.png" id="1_j8ce2"]
 [ext_resource type="Script" uid="uid://bpbp6muasvyrb" path="res://core/components/health_component.gd" id="2_eodr5"]
 [ext_resource type="Script" uid="uid://uyw2b6arf83e" path="res://core/components/move_component.gd" id="2_j3qf4"]
-[ext_resource type="Script" uid="uid://b8tblfh37in4j" path="res://core/components/die_component.gd" id="3_6k3ku"]
+[ext_resource type="Script" uid="uid://b8tblfh37in4j" path="res://core/components/death_component.gd" id="3_6k3ku"]
 [ext_resource type="Script" uid="uid://d3umkh2vvfsmt" path="res://core/components/ai_component.gd" id="3_one3m"]
 [ext_resource type="Script" uid="uid://twwb1gi12u7d" path="res://core/ai/behaviors/wander_behavior.gd" id="4_7y3fy"]
 [ext_resource type="Script" uid="uid://dkcy8mvs2n3ir" path="res://core/ai/behaviors/attack_behavior.gd" id="4_lxt6e"]
@@ -101,11 +101,11 @@ script = ExtResource("2_eodr5")
 max_health = 20.0
 metadata/_custom_type_script = "uid://bpbp6muasvyrb"
 
-[node name="DieComponent" type="Node2D" parent="."]
+[node name="DeathComponent" type="Node2D" parent="."]
 script = ExtResource("3_6k3ku")
 metadata/_custom_type_script = "uid://b8tblfh37in4j"
 
-[node name="Point" parent="DieComponent" instance=ExtResource("4_tlvcn")]
+[node name="Point" parent="DeathComponent" instance=ExtResource("4_tlvcn")]
 
 [node name="MoveComponent" type="Node2D" parent="."]
 script = ExtResource("2_j3qf4")
