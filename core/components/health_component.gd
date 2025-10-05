@@ -26,6 +26,6 @@ func damage(damage: float) -> void:
 		health = max_health
 	health_changed.emit(health, old_health)
 	if health <= 0:
-		if owner.has_meta("die"):
-			owner.get_meta("die").die()
+		if owner.has_meta("death"):
+			owner.get_meta("death").death()
 		owner.queue_free()
