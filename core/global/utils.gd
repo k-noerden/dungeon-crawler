@@ -15,8 +15,11 @@ func spawn(node: Node, position: Vector2, rotation: float, target: Node2D) -> vo
 	for child in node.get_children():
 		if child.has_meta("is_nonphysical"):
 			continue
-		# if not child.has_meta("spawn"):
-		# 	continue
+		if child.has_meta("is_action"):
+			child.action(target)
+			continue
+		if child is CollisionShape2D:
+			continue
 		success = true
 		var template = child
 		var instance = template.duplicate()

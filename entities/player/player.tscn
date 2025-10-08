@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfay184gx0isc"]
+[gd_scene load_steps=29 format=3 uid="uid://cfay184gx0isc"]
 
 [ext_resource type="Texture2D" uid="uid://cgjj58wtatkay" path="res://entities/player/ordinary-guy.png" id="1_symyc"]
 [ext_resource type="Script" uid="uid://do565ga0ra1gg" path="res://core/components/input_move_component.gd" id="2_abrql"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b3n33tlv5042x" path="res://core/components/inventory_component.gd" id="4_bls4j"]
 [ext_resource type="Script" uid="uid://bpbp6muasvyrb" path="res://core/components/health_component.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://brgff5lx8v532" path="res://core/components/gameover_component.gd" id="6_8fjmc"]
+[ext_resource type="Script" uid="uid://b8tblfh37in4j" path="res://core/components/death_component.gd" id="6_qiwj3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abrql"]
 atlas = ExtResource("1_symyc")
@@ -191,5 +192,9 @@ metadata/_custom_type_script = "uid://b3n33tlv5042x"
 script = ExtResource("5_fkugw")
 metadata/_custom_type_script = "uid://bpbp6muasvyrb"
 
-[node name="GameoverComponent" type="Node2D" parent="."]
+[node name="DeathComponent" type="Node2D" parent="."]
+script = ExtResource("6_qiwj3")
+metadata/_custom_type_script = "uid://b8tblfh37in4j"
+
+[node name="GameoverComponent" type="Node2D" parent="DeathComponent"]
 script = ExtResource("6_8fjmc")

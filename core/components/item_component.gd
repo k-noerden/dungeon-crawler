@@ -28,7 +28,7 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	owner.remove_meta("item")
-	owner.set_meta("interact", self)
+	owner.remove_meta("interact")
 
 
 func interact(who: Node2D) -> bool:

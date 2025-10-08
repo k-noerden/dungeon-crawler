@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://y5wi55i2qknx"]
+[gd_scene load_steps=13 format=3 uid="uid://y5wi55i2qknx"]
 
-[ext_resource type="Script" uid="uid://c5xdjw37y5sp6" path="res://core/components/touch_point.gd" id="2_644q4"]
 [ext_resource type="Texture2D" uid="uid://b1prra1jknxxk" path="res://entities/pickups/point/point.png" id="2_b0nbx"]
+[ext_resource type="Script" uid="uid://ct1p40dtj7xid" path="res://core/components/touch_component.gd" id="2_q0hsu"]
+[ext_resource type="Script" uid="uid://bvbijarni4n1x" path="res://core/components/change_points_component.gd" id="3_bkhfj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkhfj"]
 atlas = ExtResource("2_b0nbx")
@@ -60,7 +61,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b0nbx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qf0p"]
 radius = 4.0
 
 [node name="Point" type="Node2D"]
@@ -69,9 +70,14 @@ radius = 4.0
 sprite_frames = SubResource("SpriteFrames_1dech")
 autoplay = "default"
 
-[node name="TouchPoint" type="Area2D" parent="."]
-script = ExtResource("2_644q4")
-metadata/_custom_type_script = "uid://c5xdjw37y5sp6"
+[node name="TouchComponent" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("2_q0hsu")
+metadata/_custom_type_script = "uid://ct1p40dtj7xid"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchPoint"]
-shape = SubResource("CircleShape2D_b0nbx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchComponent"]
+shape = SubResource("CircleShape2D_8qf0p")
+
+[node name="ChangePointsComponent" type="Node2D" parent="TouchComponent"]
+script = ExtResource("3_bkhfj")
+metadata/_custom_type_script = "uid://bvbijarni4n1x"

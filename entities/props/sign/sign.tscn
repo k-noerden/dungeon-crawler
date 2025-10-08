@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs441powagui1"]
+[gd_scene load_steps=9 format=3 uid="uid://bs441powagui1"]
 
 [ext_resource type="Script" uid="uid://bgnxmdyvalivw" path="res://entities/props/sign/sign.gd" id="1_57qjf"]
 [ext_resource type="Texture2D" uid="uid://dsic7yp8lyv2h" path="res://entities/props/sign/sign.png" id="1_ubwok"]
 [ext_resource type="Script" uid="uid://clqssmjgrx46r" path="res://core/components/text_component.gd" id="2_3xgcc"]
+[ext_resource type="Script" uid="uid://dcg8sdvraluo0" path="res://core/components/interact_component.gd" id="3_2gdg8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xgcc"]
 atlas = ExtResource("1_ubwok")
@@ -38,7 +39,11 @@ sprite_frames = SubResource("SpriteFrames_57qjf")
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_2gdg8")
 
-[node name="TextComponent" type="Label" parent="."]
+[node name="InteractComponent" type="Node2D" parent="."]
+script = ExtResource("3_2gdg8")
+metadata/_custom_type_script = "uid://dcg8sdvraluo0"
+
+[node name="TextComponent" type="Label" parent="InteractComponent"]
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,7 +56,6 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "."
 label_settings = SubResource("LabelSettings_3xgcc")
 horizontal_alignment = 1
 vertical_alignment = 1
