@@ -44,4 +44,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	owner.get_meta("damage").damage(body)
+	if owner.has_meta("death"):
+		owner.get_meta("death").death()
 	owner.queue_free()
