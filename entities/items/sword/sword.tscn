@@ -33,6 +33,7 @@ fire_animation = "default"
 metadata/_custom_type_script = "uid://b4r4vtw21koy3"
 
 [node name="Slash" parent="TriggerSemiAutomaticComponent" instance=ExtResource("2_vulpu")]
+collision_mask = 5
 
 [node name="ItemAimComponent" type="Node2D" parent="."]
 script = ExtResource("3_vulpu")
