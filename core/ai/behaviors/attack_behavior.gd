@@ -9,12 +9,19 @@ enum BetweenShotsBehavior {STAY, MOVE_CLOSER}
 @export var halt_duration = 0.5
 @export var between_shots = BetweenShotsBehavior.STAY
 @export var move_speed = 30.0
+@export var attack_animation: String
+
+var animation: AnimatedSprite2D
 
 var fire_timer = 0.0
 var halt_timer = 0.0
 
 func _ready() -> void:
 	Utils.configure_templates(self)
+	animation = owner.get_node("AnimatedSprite2D")
+	if attack_animation:
+		assert(animation.sprite_frames.has_animation(attack_animation), "Missing attack animation in " + str(owner))
+
 
 func _physics_process(delta: float) -> void:
 	fire_timer -= delta
@@ -54,3 +61,5 @@ func fire() -> void:
 		null)
 	fire_timer = randf_range(min_attack_delay, max_attack_delay)
 	halt_timer = halt_duration
+	if attack_animation:
+		animation.play(attack_animation)

@@ -64,7 +64,8 @@ func move() -> bool:
 		animation.play(move_animation)
 		animation.flip_h = owner.velocity.x < 0
 	else:
-		animation.play(idle_animation)
+		if animation.animation == move_animation or not animation.is_playing():
+			animation.play(idle_animation)
 	return collided
 
 
