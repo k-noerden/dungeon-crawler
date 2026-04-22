@@ -5,5 +5,5 @@ extends Node
 func _ready() -> void:
 	set_meta("is_action", self)
 
-func action(who: Node2D) -> bool:
+func action(who: Node2D) -> void:
 	owner.queue_free()
