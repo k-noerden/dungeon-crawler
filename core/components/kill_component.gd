@@ -1,6 +1,6 @@
 @icon("res://assets/icons/configurable.svg")
 class_name KillComponent
-extends Node
+extends Node2D
 
 func _ready() -> void:
 	set_meta("is_action", self)
