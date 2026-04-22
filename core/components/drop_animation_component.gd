@@ -1,8 +1,9 @@
 @icon("res://assets/icons/configurable.svg")
-class_name SingleAnimationComponent
+class_name DropAnimationComponent
 extends Node2D
 
 @export var animation = ""
+@export var stay = false
 var _animation: AnimatedSprite2D
 
 
@@ -18,5 +19,6 @@ func action(target) -> void:
 	_animation.global_position = owner.global_position + _animation.position
 	LevelLoader.current_level.add_child(_animation)
 	_animation.play(animation)
-	_animation.animation_finished.connect(_animation.queue_free)
-	_animation.animation_looped.connect(_animation.queue_free)
+	if not self.stay:
+		_animation.animation_finished.connect(_animation.queue_free)
+		_animation.animation_looped.connect(_animation.queue_free)
