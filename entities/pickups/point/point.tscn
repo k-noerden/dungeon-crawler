@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://y5wi55i2qknx"]
+[gd_scene format=3 uid="uid://y5wi55i2qknx"]
 
 [ext_resource type="Texture2D" uid="uid://b1prra1jknxxk" path="res://entities/pickups/point/point.png" id="2_b0nbx"]
 [ext_resource type="Script" uid="uid://ct1p40dtj7xid" path="res://core/components/touch_component.gd" id="2_q0hsu"]
@@ -64,20 +64,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8qf0p"]
 radius = 4.0
 
-[node name="Point" type="Node2D"]
+[node name="Point" type="Node2D" unique_id=2056225907]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=899334636]
 sprite_frames = SubResource("SpriteFrames_1dech")
 autoplay = "default"
 
-[node name="TouchComponent" type="Area2D" parent="."]
-collision_mask = 3
+[node name="TouchComponent" type="Area2D" parent="." unique_id=1767684100]
+collision_layer = 0
 script = ExtResource("2_q0hsu")
 metadata/_custom_type_script = "uid://ct1p40dtj7xid"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchComponent" unique_id=947408668]
 shape = SubResource("CircleShape2D_8qf0p")
 
-[node name="ChangePointsComponent" type="Node2D" parent="TouchComponent"]
+[node name="ChangePointsComponent" type="Node2D" parent="TouchComponent" unique_id=1731097138]
 script = ExtResource("3_bkhfj")
 metadata/_custom_type_script = "uid://bvbijarni4n1x"
