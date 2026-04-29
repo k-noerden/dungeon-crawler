@@ -15,9 +15,11 @@ func _enter_tree() -> void:
 	hide()
 
 func action(target) -> void:
+	var pos = _animation.global_position
 	owner.remove_child(_animation)
 	_animation.global_position = owner.global_position + _animation.position
 	LevelLoader.current_level.add_child(_animation)
+	_animation.global_position = pos;
 	_animation.play(animation)
 	if not self.stay:
 		_animation.animation_finished.connect(_animation.queue_free)
