@@ -10,5 +10,5 @@ func _exit_tree() -> void:
 		owner.remove_meta("interact")
 
 func interact(who: Node2D) -> bool:
-	Utils.spawn(self, Vector2.ZERO, 0.0, who)
+	Utils.spawn(self, null, 0.0, who)
 	return true

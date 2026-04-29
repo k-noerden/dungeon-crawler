@@ -10,7 +10,8 @@ func configure_templates(node: Node):
 		child.process_mode = PROCESS_MODE_DISABLED
 
 
-func spawn(node: Node, position: Vector2, rotation: float, target: Node2D) -> void:
+# func spawn(node: Node, position: Vector2, rotation: float, target: Node2D) -> void:
+func spawn(node: Node, position, rotation: float, target: Node2D) -> void:
 	var success = false
 	for child in node.get_children():
 		if child.has_meta("is_nonphysical"):
@@ -23,7 +24,10 @@ func spawn(node: Node, position: Vector2, rotation: float, target: Node2D) -> vo
 		success = true
 		var template = child
 		var instance = template.duplicate()
-		instance.global_position = position
+		if position != null:
+			instance.global_position = position
+		else:
+			instance.global_position = template.global_position
 		instance.global_rotation = rotation
 		instance.show()
 		instance.process_mode = PROCESS_MODE_INHERIT
