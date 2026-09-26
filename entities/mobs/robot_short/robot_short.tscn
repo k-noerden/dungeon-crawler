@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://whju7of01hwe"]
+[gd_scene format=3 uid="uid://whju7of01hwe"]
 
 [ext_resource type="Texture2D" uid="uid://btpkkfrcbh2eu" path="res://entities/mobs/robot_short/robot-short.png" id="1_j8ce2"]
 [ext_resource type="Script" uid="uid://bpbp6muasvyrb" path="res://core/components/health_component.gd" id="2_eodr5"]
 [ext_resource type="Script" uid="uid://uyw2b6arf83e" path="res://core/components/move_component.gd" id="2_j3qf4"]
+[ext_resource type="Texture2D" uid="uid://cng6k8r52lp81" path="res://entities/attacks/explosion/explosion_1.png" id="2_tlvcn"]
 [ext_resource type="Script" uid="uid://b8tblfh37in4j" path="res://core/components/death_component.gd" id="3_6k3ku"]
 [ext_resource type="Script" uid="uid://d3umkh2vvfsmt" path="res://core/components/ai_component.gd" id="3_one3m"]
 [ext_resource type="Script" uid="uid://twwb1gi12u7d" path="res://core/ai/behaviors/wander_behavior.gd" id="4_7y3fy"]
@@ -10,10 +11,59 @@
 [ext_resource type="PackedScene" uid="uid://y5wi55i2qknx" path="res://entities/pickups/point/point.tscn" id="4_tlvcn"]
 [ext_resource type="Script" uid="uid://y730qghb2g7r" path="res://core/ai/conditions/target_seen_condition.gd" id="5_8jv2n"]
 [ext_resource type="PackedScene" uid="uid://da5ivq5p61x4w" path="res://entities/attacks/bullet/bullet.tscn" id="5_51c8a"]
+[ext_resource type="Script" uid="uid://dbn8ddypykasd" path="res://core/components/drop_animation_component.gd" id="6_k3ha1"]
 [ext_resource type="Script" uid="uid://chl44syfw4dc7" path="res://core/ai/behaviors/track_last_seen_behavior.gd" id="8_51c8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3qf4"]
 radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k3ku"]
+atlas = ExtResource("1_j8ce2")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlvcn"]
+atlas = ExtResource("1_j8ce2")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3ha1"]
+atlas = ExtResource("1_j8ce2")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm64m"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ycpx"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3xhy"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx56y"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibmyy"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6fbn"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujuyn"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnlk8"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m35v2"]
+atlas = ExtResource("2_tlvcn")
+region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frgyr"]
 atlas = ExtResource("1_j8ce2")
@@ -47,8 +97,70 @@ region = Rect2(160, 0, 32, 32)
 atlas = ExtResource("1_j8ce2")
 region = Rect2(192, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgttl"]
+atlas = ExtResource("1_j8ce2")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l8cy"]
+atlas = ExtResource("1_j8ce2")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17e8t"]
+atlas = ExtResource("1_j8ce2")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq2gr"]
+atlas = ExtResource("1_j8ce2")
+region = Rect2(96, 96, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6k3ku"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k3ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlvcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3ha1")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm64m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ycpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3xhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx56y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibmyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6fbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujuyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnlk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m35v2")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_frgyr")
@@ -82,73 +194,97 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgttl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l8cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17e8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq2gr")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 5.0
 }]
 
-[node name="RobotShort" type="CharacterBody2D"]
+[node name="RobotShort" type="CharacterBody2D" unique_id=81684249]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=357739996]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_j3qf4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650656660]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_6k3ku")
-animation = &"idle"
+animation = &"stun"
 
-[node name="HealthComponent" type="Node2D" parent="."]
+[node name="HealthComponent" type="Node2D" parent="." unique_id=962914937]
 script = ExtResource("2_eodr5")
 max_health = 20.0
 metadata/_custom_type_script = "uid://bpbp6muasvyrb"
 
-[node name="DeathComponent" type="Node2D" parent="."]
+[node name="DeathComponent" type="Node2D" parent="." unique_id=743318768]
 script = ExtResource("3_6k3ku")
 metadata/_custom_type_script = "uid://b8tblfh37in4j"
 
-[node name="Point" parent="DeathComponent" instance=ExtResource("4_tlvcn")]
+[node name="Point" parent="DeathComponent" unique_id=1672489583 instance=ExtResource("4_tlvcn")]
 
-[node name="MoveComponent" type="Node2D" parent="."]
+[node name="DropAnimationComponent" type="Node2D" parent="DeathComponent" unique_id=973619090]
+script = ExtResource("6_k3ha1")
+animation = "die"
+stay = true
+metadata/_custom_type_script = "uid://dbn8ddypykasd"
+
+[node name="MoveComponent" type="Node2D" parent="." unique_id=1449326277]
 script = ExtResource("2_j3qf4")
 move_animation = "run"
 idle_animation = "idle"
 metadata/_custom_type_script = "uid://uyw2b6arf83e"
 
-[node name="AiComponent" type="Node2D" parent="."]
+[node name="AiComponent" type="Node2D" parent="." unique_id=80927365]
 script = ExtResource("3_one3m")
 vision_mask = 1
 metadata/_custom_type_script = "uid://d3umkh2vvfsmt"
 
-[node name="AttackBehavior" type="Node2D" parent="AiComponent"]
+[node name="AttackBehavior" type="Node2D" parent="AiComponent" unique_id=1944727644]
 script = ExtResource("4_lxt6e")
 min_attack_delay = 0.4
 between_shots = 1
+attack_animation = "attack"
 metadata/_custom_type_script = "uid://dkcy8mvs2n3ir"
 
-[node name="Bullet" parent="AiComponent/AttackBehavior" instance=ExtResource("5_51c8a")]
+[node name="Bullet" parent="AiComponent/AttackBehavior" unique_id=1953323627 instance=ExtResource("5_51c8a")]
 visible = false
 collision_mask = 3
 
-[node name="TargetSeenDetector" type="Node2D" parent="AiComponent/AttackBehavior"]
+[node name="TargetSeenDetector" type="Node2D" parent="AiComponent/AttackBehavior" unique_id=1701417329]
 script = ExtResource("5_8jv2n")
 next_behavior = "TrackLastSeenBehavior"
 negated = true
 metadata/_custom_type_script = "uid://y730qghb2g7r"
 
-[node name="TrackLastSeenBehavior" type="Node2D" parent="AiComponent"]
+[node name="TrackLastSeenBehavior" type="Node2D" parent="AiComponent" unique_id=1927175566]
 script = ExtResource("8_51c8a")
 lost_track_behavior = "WanderBehavior"
 metadata/_custom_type_script = "uid://chl44syfw4dc7"
 
-[node name="TargetSeenDetector" type="Node2D" parent="AiComponent/TrackLastSeenBehavior"]
+[node name="TargetSeenDetector" type="Node2D" parent="AiComponent/TrackLastSeenBehavior" unique_id=767091667]
 script = ExtResource("5_8jv2n")
 next_behavior = "AttackBehavior"
 metadata/_custom_type_script = "uid://y730qghb2g7r"
 
-[node name="WanderBehavior" type="Node2D" parent="AiComponent"]
+[node name="WanderBehavior" type="Node2D" parent="AiComponent" unique_id=1388849696]
 script = ExtResource("4_7y3fy")
 metadata/_custom_type_script = "uid://twwb1gi12u7d"
 
-[node name="TargetSeenDetector" type="Node2D" parent="AiComponent/WanderBehavior"]
+[node name="TargetSeenDetector" type="Node2D" parent="AiComponent/WanderBehavior" unique_id=815431891]
 script = ExtResource("5_8jv2n")
 next_behavior = "AttackBehavior"
 max_distance = 200

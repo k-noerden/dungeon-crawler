@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://da5ivq5p61x4w"]
+[gd_scene format=3 uid="uid://da5ivq5p61x4w"]
 
 [ext_resource type="Script" uid="uid://daqwgl54rf2pw" path="res://entities/attacks/bullet/bullet.gd" id="1_caml1"]
 [ext_resource type="Texture2D" uid="uid://cgrxy4p7ymjwi" path="res://entities/attacks/bullet/bullet.png" id="2_uhxwy"]
@@ -23,22 +23,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" unique_id=514554893]
 collision_layer = 0
+collision_mask = 7
 script = ExtResource("1_caml1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074383763]
 shape = SubResource("CircleShape2D_0el72")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=495004783]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_sriyl")
 
-[node name="ProjectileAttackComponent" type="Node2D" parent="."]
+[node name="ProjectileAttackComponent" type="Node2D" parent="." unique_id=1184241577]
 script = ExtResource("3_uhxwy")
 loop_animation = "default"
 metadata/_custom_type_script = "uid://dia1c7nu47836"
 
-[node name="DamagePlainComponent" type="Node2D" parent="."]
+[node name="DamagePlainComponent" type="Node2D" parent="." unique_id=137986292]
 script = ExtResource("4_0el72")
 metadata/_custom_type_script = "uid://bqng2473qn6ds"

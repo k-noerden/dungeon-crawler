@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btpkkfrcbh2eu"
-path="res://.godot/imported/robot-short.png-67cf1b534b2d0759963d9d1e2a40d5fc.ctex"
+uid="uid://dhw3pupk15ead"
+path="res://.godot/imported/stungun.png-dada85a28a80e628e01af17fc561cf05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/mobs/robot_short/robot-short.png"
-dest_files=["res://.godot/imported/robot-short.png-67cf1b534b2d0759963d9d1e2a40d5fc.ctex"]
+source_file="res://entities/items/stungun/stungun.png"
+dest_files=["res://.godot/imported/stungun.png-dada85a28a80e628e01af17fc561cf05.ctex"]
 
 [params]
 

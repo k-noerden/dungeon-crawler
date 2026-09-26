@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://xo0fupch04q5"]
+
+[ext_resource type="Script" uid="uid://dfpu0j0omhqtx" path="res://core/components/trigger_automatic_component.gd" id="1_fkwnw"]
+[ext_resource type="PackedScene" uid="uid://cevstpkc4tb7d" path="res://entities/attacks/bulletstun/bulletstun.tscn" id="2_bcbth"]
+[ext_resource type="Script" uid="uid://ds2e47k38sq0a" path="res://core/components/item_aim_component.gd" id="4_82oel"]
+[ext_resource type="Texture2D" uid="uid://dhw3pupk15ead" path="res://entities/items/stungun/stungun.png" id="5_0ahtv"]
+[ext_resource type="Script" uid="uid://di5yieyrn8s8j" path="res://core/components/item_component.gd" id="5_tdyd6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isqmq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkwnw"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcbth"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5t5p"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82oel"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdyd6"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxjwo"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpfcb"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unly6"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u513f"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8r3m"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxa2y"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v8k2"]
+atlas = ExtResource("5_0ahtv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_be5ec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkwnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcbth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5t5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82oel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdyd6")
+}],
+"loop": false,
+"name": &"equip",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxjwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpfcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unly6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u513f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8r3m")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxa2y")
+}],
+"loop": true,
+"name": &"ground",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v8k2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Stungun" type="Node2D" unique_id=390135804]
+
+[node name="TriggerAutomaticComponent" type="Node2D" parent="." unique_id=294159740]
+script = ExtResource("1_fkwnw")
+equip_animation = "equip"
+idle_animation = "idle"
+fire_animation = "fire"
+metadata/_custom_type_script = "uid://dfpu0j0omhqtx"
+
+[node name="Bulletstun" parent="TriggerAutomaticComponent" unique_id=514554893 instance=ExtResource("2_bcbth")]
+min_damage = 0.0
+max_damage = 3.0
+
+[node name="ItemAimComponent" type="Node2D" parent="." unique_id=458980552]
+script = ExtResource("4_82oel")
+metadata/_custom_type_script = "uid://ds2e47k38sq0a"
+
+[node name="Pivot" type="Node2D" parent="ItemAimComponent" unique_id=1020096904]
+position = Vector2(0, -14)
+
+[node name="Hold" type="Marker2D" parent="ItemAimComponent/Pivot" unique_id=928319286]
+position = Vector2(12, 0)
+
+[node name="ItemComponent" type="Area2D" parent="." unique_id=1621150048]
+script = ExtResource("5_tdyd6")
+ground_animation = "ground"
+inventory_animation = "ground"
+metadata/_custom_type_script = "uid://di5yieyrn8s8j"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemComponent" unique_id=1134025784]
+shape = SubResource("CircleShape2D_isqmq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=345823381]
+sprite_frames = SubResource("SpriteFrames_be5ec")
+animation = &"equip"
+
+[node name="FirePoint" type="Marker2D" parent="AnimatedSprite2D" unique_id=2141237301]
+position = Vector2(6, 0)
