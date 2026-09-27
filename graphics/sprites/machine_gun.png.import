@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhw3pupk15ead"
-path="res://.godot/imported/stungun.png-dada85a28a80e628e01af17fc561cf05.ctex"
+uid="uid://cfqnlsu5la8oj"
+path="res://.godot/imported/machine_gun.png-458c567e6e056f56df316c14e9549208.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/items/stungun/stungun.png"
-dest_files=["res://.godot/imported/stungun.png-dada85a28a80e628e01af17fc561cf05.ctex"]
+source_file="res://graphics/sprites/machine_gun.png"
+dest_files=["res://.godot/imported/machine_gun.png-458c567e6e056f56df316c14e9549208.ctex"]
 
 [params]
 

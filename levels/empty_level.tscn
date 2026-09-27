@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cep0ssiavig06"]
+[gd_scene format=3 uid="uid://cep0ssiavig06"]
 
-[ext_resource type="TileSet" uid="uid://cbhvhtodajb8l" path="res://assets/tilesets/tileset1.tres" id="1_jtm84"]
+[ext_resource type="TileSet" uid="uid://cbhvhtodajb8l" path="res://graphics/tiles/tileset1.tres" id="1_jtm84"]
 
-[node name="EmptyLevel" type="Node2D"]
+[node name="EmptyLevel" type="Node2D" unique_id=445781696]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=809387572]
 tile_set = ExtResource("1_jtm84")

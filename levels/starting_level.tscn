@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://d0sshxlgqsym4"]
 
-[ext_resource type="TileSet" uid="uid://cbhvhtodajb8l" path="res://assets/tilesets/tileset1.tres" id="1_san4i"]
+[ext_resource type="TileSet" uid="uid://cbhvhtodajb8l" path="res://graphics/tiles/tileset1.tres" id="1_san4i"]
 [ext_resource type="PackedScene" uid="uid://b70chirirsryt" path="res://entities/items/machine_gun/machine_gun.tscn" id="2_oc8uw"]
 [ext_resource type="PackedScene" uid="uid://whju7of01hwe" path="res://entities/mobs/robot_short/robot_short.tscn" id="3_e2ue3"]
 [ext_resource type="PackedScene" uid="uid://y5wi55i2qknx" path="res://entities/pickups/point/point.tscn" id="4_6ga8w"]

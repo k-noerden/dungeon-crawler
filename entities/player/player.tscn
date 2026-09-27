@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfay184gx0isc"]
+[gd_scene format=3 uid="uid://cfay184gx0isc"]
 
-[ext_resource type="Texture2D" uid="uid://cgjj58wtatkay" path="res://entities/player/ordinary-guy.png" id="1_symyc"]
+[ext_resource type="Texture2D" uid="uid://cgjj58wtatkay" path="res://graphics/sprites/ordinary-guy.png" id="1_symyc"]
 [ext_resource type="Script" uid="uid://do565ga0ra1gg" path="res://core/components/input_move_component.gd" id="2_abrql"]
 [ext_resource type="Script" uid="uid://b5w3wg3af3kp4" path="res://core/components/input_other_component.gd" id="3_sglur"]
 [ext_resource type="Script" uid="uid://b3n33tlv5042x" path="res://core/components/inventory_component.gd" id="4_bls4j"]
@@ -153,48 +153,48 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sglur"]
 radius = 12.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=27244770]
 collision_layer = 2
 motion_mode = 1
 wall_min_slide_angle = 0.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=369594058]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_mtric")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=136662907]
 shape = SubResource("CircleShape2D_sfv1e")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1452147949]
 
-[node name="InputMoveComponent" type="Node" parent="."]
+[node name="InputMoveComponent" type="Node" parent="." unique_id=712107492]
 script = ExtResource("2_abrql")
 idle_animation = "idle"
 run_animation = "run"
 metadata/_custom_type_script = "uid://do565ga0ra1gg"
 
-[node name="InputOtherComponent" type="Node2D" parent="."]
+[node name="InputOtherComponent" type="Node2D" parent="." unique_id=1063033435]
 script = ExtResource("3_sglur")
 metadata/_custom_type_script = "uid://b5w3wg3af3kp4"
 
-[node name="Area2D" type="Area2D" parent="InputOtherComponent"]
+[node name="Area2D" type="Area2D" parent="InputOtherComponent" unique_id=1294448553]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InputOtherComponent/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputOtherComponent/Area2D" unique_id=1592046876]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_sglur")
 
-[node name="InventoryComponent" type="Node2D" parent="."]
+[node name="InventoryComponent" type="Node2D" parent="." unique_id=1855854379]
 script = ExtResource("4_bls4j")
 metadata/_custom_type_script = "uid://b3n33tlv5042x"
 
-[node name="HealthComponent" type="Node2D" parent="."]
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1372984287]
 script = ExtResource("5_fkugw")
 metadata/_custom_type_script = "uid://bpbp6muasvyrb"
 
-[node name="DeathComponent" type="Node2D" parent="."]
+[node name="DeathComponent" type="Node2D" parent="." unique_id=1199535392]
 script = ExtResource("6_qiwj3")
 metadata/_custom_type_script = "uid://b8tblfh37in4j"
 
-[node name="GameoverComponent" type="Node2D" parent="DeathComponent"]
+[node name="GameoverComponent" type="Node2D" parent="DeathComponent" unique_id=1375940774]
 script = ExtResource("6_8fjmc")

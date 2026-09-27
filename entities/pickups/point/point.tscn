@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://y5wi55i2qknx"]
 
-[ext_resource type="Texture2D" uid="uid://b1prra1jknxxk" path="res://entities/pickups/point/point.png" id="2_b0nbx"]
+[ext_resource type="Texture2D" uid="uid://b1prra1jknxxk" path="res://graphics/sprites/point.png" id="2_b0nbx"]
 [ext_resource type="Script" uid="uid://ct1p40dtj7xid" path="res://core/components/touch_component.gd" id="2_q0hsu"]
 [ext_resource type="Script" uid="uid://bvbijarni4n1x" path="res://core/components/change_points_component.gd" id="3_bkhfj"]
 

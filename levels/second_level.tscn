@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=4 uid="uid://b2axmy0ldv586"]
+[gd_scene format=4 uid="uid://b2axmy0ldv586"]
 
-[ext_resource type="TileSet" uid="uid://cbhvhtodajb8l" path="res://assets/tilesets/tileset1.tres" id="1_47dl3"]
+[ext_resource type="TileSet" uid="uid://cbhvhtodajb8l" path="res://graphics/tiles/tileset1.tres" id="1_47dl3"]
 [ext_resource type="PackedScene" uid="uid://ci76rnrc70pva" path="res://entities/keypoints/teleporter/teleporter.tscn" id="2_t0do7"]
 [ext_resource type="PackedScene" uid="uid://whju7of01hwe" path="res://entities/mobs/robot_short/robot_short.tscn" id="3_0bl07"]
 

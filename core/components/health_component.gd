@@ -1,4 +1,4 @@
-@icon("res://assets/icons/configurable.svg")
+@icon("res://core/ui/editor/configurable.svg")
 class_name HealthComponent
 extends Node2D
 

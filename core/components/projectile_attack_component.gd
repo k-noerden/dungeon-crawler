@@ -1,4 +1,4 @@
-@icon("res://assets/icons/configurable.svg")
+@icon("res://core/ui/editor/configurable.svg")
 class_name ProjectileAttackComponent
 extends Node2D
 
@@ -37,6 +37,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _physics_process(delta: float) -> void:
 	owner.position += velocity * delta
+	# owner.move_and_collide(velocity * delta)
 	moved_distance += owner.speed * delta
 	if moved_distance > owner.range:
 		owner.queue_free()
