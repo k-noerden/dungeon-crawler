@@ -239,7 +239,6 @@ metadata/_custom_type_script = "uid://b8tblfh37in4j"
 [node name="DropAnimationComponent" type="Node2D" parent="DeathComponent" unique_id=973619090]
 script = ExtResource("6_k3ha1")
 animation = "die"
-stay = true
 metadata/_custom_type_script = "uid://dbn8ddypykasd"
 
 [node name="MoveComponent" type="Node2D" parent="." unique_id=1449326277]
