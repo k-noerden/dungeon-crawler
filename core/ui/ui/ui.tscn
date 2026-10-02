@@ -1,7 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dphuwq1grm75l"]
+[gd_scene format=3 uid="uid://dphuwq1grm75l"]
 
 [ext_resource type="Script" uid="uid://ddummw2ijbjav" path="res://core/ui/ui/ui.gd" id="1_emv5m"]
 [ext_resource type="Texture2D" uid="uid://w27qhh8sygep" path="res://core/ui/ui/selected.png" id="2_32xgv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emv5m"]
+bg_color = Color(0.20392157, 0.10980392, 0.15294118, 0.39215687)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65ixb"]
 bg_color = Color(0, 0, 0, 0.12549)
@@ -32,9 +39,9 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_emv5m"]
-font_size = 6
+font_size = 8
 
-[node name="Ui" type="Control"]
+[node name="Ui" type="Control" unique_id=1052532562]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,15 +50,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_emv5m")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=817373291]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_emv5m")
 value = 40.0
 show_percentage = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1329056262]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -62,43 +70,43 @@ offset_bottom = 32.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=832108813]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_65ixb")
 
-[node name="Inventory0" type="TextureRect" parent="HBoxContainer/PanelContainer"]
+[node name="Inventory0" type="TextureRect" parent="HBoxContainer/PanelContainer" unique_id=1867093285]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=253432048]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_850ij")
 
-[node name="Inventory1" type="TextureRect" parent="HBoxContainer/PanelContainer2"]
+[node name="Inventory1" type="TextureRect" parent="HBoxContainer/PanelContainer2" unique_id=537860910]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer" unique_id=72746571]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cpre4")
 
-[node name="Inventory2" type="TextureRect" parent="HBoxContainer/PanelContainer3"]
+[node name="Inventory2" type="TextureRect" parent="HBoxContainer/PanelContainer3" unique_id=1233190060]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer"]
+[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer" unique_id=86461119]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r0lr3")
 
-[node name="Inventory3" type="TextureRect" parent="HBoxContainer/PanelContainer4"]
+[node name="Inventory3" type="TextureRect" parent="HBoxContainer/PanelContainer4" unique_id=1330793933]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Selected" type="TextureRect" parent="."]
+[node name="Selected" type="TextureRect" parent="." unique_id=821145981]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 176.0
@@ -106,12 +114,13 @@ offset_right = 208.0
 offset_bottom = 32.0
 texture = ExtResource("2_32xgv")
 
-[node name="Points" type="Label" parent="."]
+[node name="Points" type="Label" parent="." unique_id=1467375287]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 84.0
-offset_top = 36.0
-offset_right = 124.0
-offset_bottom = 52.0
+offset_left = 401.0
+offset_top = 2.0
+offset_right = 475.0
+offset_bottom = 50.0
 text = "0"
 label_settings = SubResource("LabelSettings_emv5m")
+horizontal_alignment = 2
