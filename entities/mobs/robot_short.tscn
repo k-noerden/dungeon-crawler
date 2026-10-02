@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://d3umkh2vvfsmt" path="res://core/components/ai_component.gd" id="3_one3m"]
 [ext_resource type="Script" uid="uid://twwb1gi12u7d" path="res://core/ai/behaviors/wander_behavior.gd" id="4_7y3fy"]
 [ext_resource type="Script" uid="uid://dkcy8mvs2n3ir" path="res://core/ai/behaviors/attack_behavior.gd" id="4_lxt6e"]
-[ext_resource type="PackedScene" uid="uid://y5wi55i2qknx" path="res://entities/pickups/point/point.tscn" id="4_tlvcn"]
+[ext_resource type="PackedScene" uid="uid://y5wi55i2qknx" path="res://entities/pickups/point.tscn" id="4_tlvcn"]
 [ext_resource type="Script" uid="uid://y730qghb2g7r" path="res://core/ai/conditions/target_seen_condition.gd" id="5_8jv2n"]
-[ext_resource type="PackedScene" uid="uid://da5ivq5p61x4w" path="res://entities/attacks/bullet/bullet.tscn" id="5_51c8a"]
+[ext_resource type="PackedScene" uid="uid://da5ivq5p61x4w" path="res://entities/attacks/bullet.tscn" id="5_51c8a"]
 [ext_resource type="Script" uid="uid://dbn8ddypykasd" path="res://core/components/drop_animation_component.gd" id="6_k3ha1"]
 [ext_resource type="Script" uid="uid://chl44syfw4dc7" path="res://core/ai/behaviors/track_last_seen_behavior.gd" id="8_51c8a"]
 

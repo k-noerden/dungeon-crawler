@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://d0sshxlgqsym4"]
 
 [ext_resource type="TileSet" uid="uid://cbhvhtodajb8l" path="res://graphics/tiles/tileset1.tres" id="1_san4i"]
-[ext_resource type="PackedScene" uid="uid://b70chirirsryt" path="res://entities/items/machine_gun/machine_gun.tscn" id="2_oc8uw"]
-[ext_resource type="PackedScene" uid="uid://whju7of01hwe" path="res://entities/mobs/robot_short/robot_short.tscn" id="3_e2ue3"]
-[ext_resource type="PackedScene" uid="uid://y5wi55i2qknx" path="res://entities/pickups/point/point.tscn" id="4_6ga8w"]
-[ext_resource type="PackedScene" uid="uid://bhcxymt28lnpk" path="res://entities/props/explosive_barrel/explosive_barrel.tscn" id="5_8r452"]
-[ext_resource type="PackedScene" uid="uid://4bra3se64kvf" path="res://entities/items/sword/sword.tscn" id="6_hfsy5"]
-[ext_resource type="PackedScene" uid="uid://ci76rnrc70pva" path="res://entities/keypoints/teleporter/teleporter.tscn" id="7_kw80r"]
-[ext_resource type="PackedScene" uid="uid://bs441powagui1" path="res://entities/props/sign/sign.tscn" id="8_auvru"]
-[ext_resource type="PackedScene" uid="uid://xo0fupch04q5" path="res://entities/items/stungun/stungun.tscn" id="9_aissq"]
+[ext_resource type="PackedScene" uid="uid://b70chirirsryt" path="res://entities/items/machine_gun.tscn" id="2_oc8uw"]
+[ext_resource type="PackedScene" uid="uid://whju7of01hwe" path="res://entities/mobs/robot_short.tscn" id="3_e2ue3"]
+[ext_resource type="PackedScene" uid="uid://y5wi55i2qknx" path="res://entities/pickups/point.tscn" id="4_6ga8w"]
+[ext_resource type="PackedScene" uid="uid://bhcxymt28lnpk" path="res://entities/props/explosive_barrel.tscn" id="5_8r452"]
+[ext_resource type="PackedScene" uid="uid://4bra3se64kvf" path="res://entities/items/sword.tscn" id="6_hfsy5"]
+[ext_resource type="PackedScene" uid="uid://ci76rnrc70pva" path="res://entities/keypoints/teleporter.tscn" id="7_kw80r"]
+[ext_resource type="PackedScene" uid="uid://bs441powagui1" path="res://entities/props/sign.tscn" id="8_auvru"]
+[ext_resource type="PackedScene" uid="uid://xo0fupch04q5" path="res://entities/items/stungun.tscn" id="9_aissq"]
 
 [node name="StartingLevel" type="Node2D" unique_id=1561862611]
 

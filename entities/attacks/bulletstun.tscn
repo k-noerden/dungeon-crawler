@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cevstpkc4tb7d"]
 
-[ext_resource type="Script" uid="uid://1pv23cfid4h7" path="res://entities/attacks/bulletstun/bulletstun.gd" id="1_5fq8d"]
+[ext_resource type="Script" uid="uid://1pv23cfid4h7" path="res://entities/attacks/bulletstun.gd" id="1_5fq8d"]
 [ext_resource type="Texture2D" uid="uid://blfvdxsonyxqf" path="res://graphics/sprites/bulletstun.png" id="2_5fq8d"]
 [ext_resource type="Script" uid="uid://dia1c7nu47836" path="res://core/components/projectile_attack_component.gd" id="3_52ohf"]
 [ext_resource type="Script" uid="uid://nt5ym0ual7iy" path="res://core/components/damage_stun_component.gd" id="4_5fq8d"]
