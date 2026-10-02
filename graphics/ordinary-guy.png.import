@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhw3pupk15ead"
-path="res://.godot/imported/stungun.png-2f2472aa74a142ba96fef645218f975c.ctex"
+uid="uid://cgjj58wtatkay"
+path="res://.godot/imported/ordinary-guy.png-d7b7f231b24733ae0237bd48056fd7da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/sprites/stungun.png"
-dest_files=["res://.godot/imported/stungun.png-2f2472aa74a142ba96fef645218f975c.ctex"]
+source_file="res://graphics/ordinary-guy.png"
+dest_files=["res://.godot/imported/ordinary-guy.png-d7b7f231b24733ae0237bd48056fd7da.ctex"]
 
 [params]
 

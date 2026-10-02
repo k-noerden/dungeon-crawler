@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btpkkfrcbh2eu"
-path="res://.godot/imported/robot-short.png-29bb3183665dfbac9ed9d3a7b89fa2af.ctex"
+uid="uid://blfvdxsonyxqf"
+path="res://.godot/imported/bulletstun.png-2b1414c5dafb79b5b7e5af9c0ff07d1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/sprites/robot-short.png"
-dest_files=["res://.godot/imported/robot-short.png-29bb3183665dfbac9ed9d3a7b89fa2af.ctex"]
+source_file="res://graphics/bulletstun.png"
+dest_files=["res://.godot/imported/bulletstun.png-2b1414c5dafb79b5b7e5af9c0ff07d1c.ctex"]
 
 [params]
 

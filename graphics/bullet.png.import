@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byhwvttbf15hv"
-path="res://.godot/imported/explosive-barrel.png-f18b3b1b8761729de57de3a4e8d1b517.ctex"
+uid="uid://cgrxy4p7ymjwi"
+path="res://.godot/imported/bullet.png-4c444e886a83930bd4eef12f46edeb01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/sprites/explosive-barrel.png"
-dest_files=["res://.godot/imported/explosive-barrel.png-f18b3b1b8761729de57de3a4e8d1b517.ctex"]
+source_file="res://graphics/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-4c444e886a83930bd4eef12f46edeb01.ctex"]
 
 [params]
 

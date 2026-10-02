@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dfpu0j0omhqtx" path="res://core/components/trigger_automatic_component.gd" id="1_fkwnw"]
 [ext_resource type="PackedScene" uid="uid://cevstpkc4tb7d" path="res://entities/attacks/bulletstun.tscn" id="2_bcbth"]
 [ext_resource type="Script" uid="uid://ds2e47k38sq0a" path="res://core/components/item_aim_component.gd" id="4_82oel"]
-[ext_resource type="Texture2D" uid="uid://dhw3pupk15ead" path="res://graphics/sprites/stungun.png" id="5_0ahtv"]
+[ext_resource type="Texture2D" uid="uid://dhw3pupk15ead" path="res://graphics/stungun.png" id="5_0ahtv"]
 [ext_resource type="Script" uid="uid://di5yieyrn8s8j" path="res://core/components/item_component.gd" id="5_tdyd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isqmq"]
