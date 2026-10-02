@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://blq00su5kr5m8"]
+
+[ext_resource type="Texture2D" uid="uid://dwq3o214w5cs1" path="res://graphics/healthpotion.png" id="1_6mfn4"]
+[ext_resource type="Script" uid="uid://m5mviqbr8c87" path="res://core/components/use_item_component.gd" id="2_25ned"]
+[ext_resource type="Script" uid="uid://di5yieyrn8s8j" path="res://core/components/item_component.gd" id="2_su1nh"]
+[ext_resource type="Script" uid="uid://ucasn4vqkwef" path="res://core/components/change_health_component.gd" id="4_vg6y1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25ned"]
+atlas = ExtResource("1_6mfn4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vg6y1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25ned")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_su1nh"]
+radius = 5.0
+
+[node name="HealthPotion" type="Node2D" unique_id=378128668]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=150003320]
+sprite_frames = SubResource("SpriteFrames_vg6y1")
+
+[node name="ItemComponent" type="Area2D" parent="." unique_id=1243301294]
+script = ExtResource("2_su1nh")
+ground_animation = "default"
+inventory_animation = "default"
+metadata/_custom_type_script = "uid://di5yieyrn8s8j"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemComponent" unique_id=181272585]
+shape = SubResource("CircleShape2D_su1nh")
+
+[node name="UseItemComponent" type="Node2D" parent="." unique_id=252563067]
+script = ExtResource("2_25ned")
+fire_rate = 0.001
+metadata/_custom_type_script = "uid://m5mviqbr8c87"
+
+[node name="ChangeHealthComponent" type="Node2D" parent="UseItemComponent" unique_id=2003181958]
+script = ExtResource("4_vg6y1")
+health = 50
+metadata/_custom_type_script = "uid://ucasn4vqkwef"

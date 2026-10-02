@@ -8,4 +8,6 @@ func _ready() -> void:
 	set_meta("is_action", self)
 
 func action(who: Node2D) -> void:
-	Global.player.get_meta("stats").health += health
+	# print("ChangeHealthComponent.action ", who)
+	# Global.player.get_meta("health").health += health
+	who.get_meta("health").damage(-health)

@@ -27,8 +27,9 @@ func _enter_tree() -> void:
 	animation.play(ground_animation)
 
 func _exit_tree() -> void:
-	owner.remove_meta("item")
-	owner.remove_meta("interact")
+	if owner:
+		owner.remove_meta("item")
+		owner.remove_meta("interact")
 
 
 func interact(who: Node2D) -> bool:
