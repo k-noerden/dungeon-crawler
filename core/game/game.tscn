@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://l5mawevh3ah8"]
+[gd_scene format=3 uid="uid://l5mawevh3ah8"]
 
 [ext_resource type="Script" uid="uid://bmfeb31pgqrph" path="res://core/game/game.gd" id="1_4gkfv"]
 [ext_resource type="PackedScene" uid="uid://cfay184gx0isc" path="res://entities/player/player.tscn" id="1_23swt"]
@@ -10,31 +10,31 @@ vertices = PackedVector2Array(-690.43, -625.508, -678.68, -433.812, -887, -449.2
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-897, -647, -681, -635, -668, -423, -897, -440)])
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=2068932492]
 script = ExtResource("1_4gkfv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=280593423]
 layer = -100
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1033492284]
 offset_right = 480.0
 offset_bottom = 270.0
 color = Color(0.0627451, 0.0784314, 0.121569, 1)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=119561948]
 navigation_polygon = SubResource("NavigationPolygon_23swt")
 
-[node name="CurrentLevel" type="Node2D" parent="."]
+[node name="CurrentLevel" type="Node2D" parent="." unique_id=1364437923]
 
-[node name="Ephemeral" type="Node2D" parent="."]
+[node name="Ephemeral" type="Node2D" parent="." unique_id=1981237362]
 
-[node name="Player" parent="." instance=ExtResource("1_23swt")]
+[node name="Player" parent="." unique_id=2116062652 instance=ExtResource("1_23swt")]
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=325514360]
 
-[node name="Ui" parent="CanvasLayer2" instance=ExtResource("3_slpoq")]
+[node name="Ui" parent="CanvasLayer2" unique_id=1015223572 instance=ExtResource("3_slpoq")]
 unique_name_in_owner = true
 
-[node name="Gameover" parent="CanvasLayer2" instance=ExtResource("3_4gkfv")]
+[node name="Gameover" parent="CanvasLayer2" unique_id=43477901 instance=ExtResource("3_4gkfv")]
 unique_name_in_owner = true
 visible = false

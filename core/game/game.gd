@@ -1,11 +1,14 @@
 extends Node2D
 
 
+@export var initial_level = "starting_level"
+@export var coordinate: Vector2 = Vector2.ZERO
+
 func _ready() -> void:
 	Global.game = self
 	Global.ephemeral = $Ephemeral
 	Global.player = $Player
-	LevelLoader.change_to("starting_level", Vector2.ZERO)
+	LevelLoader.change_to(initial_level, coordinate)
 	LevelLoader.initialize()
 
 
