@@ -17,6 +17,6 @@ func _ready() -> void:
 
 
 func on_touch(who: Node2D):
-	Utils.spawn(self, Vector2.ZERO, 0.0, who)
+	Utils.spawn(self, null, 0.0, who)
 	if remove_on_touch:
 		owner.queue_free()
